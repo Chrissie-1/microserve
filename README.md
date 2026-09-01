@@ -1,5 +1,8 @@
 # MicroServe
 
+[![CI](https://github.com/Chrissie-1/microserve/actions/workflows/ci.yml/badge.svg)](https://github.com/Chrissie-1/microserve/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A small LLM inference engine, written to be read: **paged KV cache**,
 **continuous batching**, **preemption**, and **speculative decoding** — each one
 implemented against a dense reference implementation that proves it did not
