@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "microserve"
+version = "0.1.0"
+description = "A small, honest LLM inference engine: paged KV cache, continuous batching, speculative decoding."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "MicroServe contributors" }]
+keywords = ["llm", "inference", "paged-attention", "speculative-decoding", "batching"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["torch>=2.2", "numpy>=1.24"]
+
+[project.optional-dependencies]
+plots = ["matplotlib>=3.7"]
+dev = ["pytest>=8.0", "ruff>=0.6", "mypy>=1.11", "matplotlib>=3.7", "pyyaml>=6.0"]
+
+[project.urls]
+Homepage = "https://github.com/Chrissie-1/microserve"
+Issues = "https://github.com/Chrissie-1/microserve/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+filterwarnings = ["error::DeprecationWarning:microserve.*"]
+
+[tool.ruff]
+line-length = 92
+target-version = "py311"
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle
+    "F",    # pyflakes
+    "I",    # isort
+    "UP",   # pyupgrade
+    "B",    # bugbear
+    "SIM",  # simplify
+    "RUF",  # ruff-specific
+]
+ignore = [
+    "B008",  # function call in default argument: intentional for torch clocks
+    "E501",  # line length is enforced by the formatter, not the linter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*" = ["E402"]  # sys.path bootstrap must precede package imports
+"tests/*" = ["B011"]
+
+[tool.mypy]
+# 3.12 rather than 3.11: the bundled numpy stubs (pulled in transitively by
+# torch) use PEP 695 `type` statements, which mypy rejects under 3.11.
+python_version = "3.12"
+files = ["src/microserve"]
+strict = true
+warn_unreachable = true
+disallow_untyped_decorators = false
+plugins = []
+
+[[tool.mypy.overrides]]
+module = ["matplotlib.*", "yaml.*"]
+ignore_missing_imports = true
