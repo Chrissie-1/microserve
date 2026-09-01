@@ -1,0 +1,124 @@
+{
+  "seed": 20240,
+  "threads": 1,
+  "target_params": 812288,
+  "draft_params": 98688,
+  "greedy_equivalence": [
+    {
+      "gamma": 1,
+      "prompts": 8,
+      "exact_matches": 8,
+      "all_match": true,
+      "acceptance_rate": 0.7142857142857143
+    },
+    {
+      "gamma": 2,
+      "prompts": 8,
+      "exact_matches": 8,
+      "all_match": true,
+      "acceptance_rate": 0.6428571428571429
+    },
+    {
+      "gamma": 4,
+      "prompts": 8,
+      "exact_matches": 8,
+      "all_match": true,
+      "acceptance_rate": 0.45588235294117646
+    },
+    {
+      "gamma": 7,
+      "prompts": 8,
+      "exact_matches": 8,
+      "all_match": true,
+      "acceptance_rate": 0.3469387755102041
+    }
+  ],
+  "distribution_test": [
+    {
+      "gamma": 1,
+      "temperature": 1.0,
+      "trials": 5000,
+      "chi2": 14.220021354960775,
+      "dof": 14,
+      "p_value": 0.4334512621293174,
+      "categories": 15,
+      "acceptance_rate": 0.9394,
+      "passes": true
+    },
+    {
+      "gamma": 2,
+      "temperature": 1.0,
+      "trials": 5000,
+      "chi2": 21.03829790746915,
+      "dof": 15,
+      "p_value": 0.135610145225043,
+      "categories": 16,
+      "acceptance_rate": 0.9043,
+      "passes": true
+    },
+    {
+      "gamma": 4,
+      "temperature": 1.0,
+      "trials": 5000,
+      "chi2": 16.99833076112614,
+      "dof": 14,
+      "p_value": 0.25626682628061764,
+      "categories": 15,
+      "acceptance_rate": 0.8095,
+      "passes": true
+    },
+    {
+      "gamma": 7,
+      "temperature": 1.0,
+      "trials": 5000,
+      "chi2": 14.775542763704973,
+      "dof": 14,
+      "p_value": 0.3936683699702097,
+      "categories": 15,
+      "acceptance_rate": 0.6276,
+      "passes": true
+    }
+  ],
+  "speedup": [
+    {
+      "gamma": 0,
+      "wall_clock_s": 0.8211007999998401,
+      "tokens": 384,
+      "tokens_per_s": 467.6648713532794,
+      "speedup": 1.0,
+      "acceptance_rate": null
+    },
+    {
+      "gamma": 1,
+      "wall_clock_s": 0.8016542999976082,
+      "tokens": 384,
+      "tokens_per_s": 479.0094682971771,
+      "speedup": 1.024257962568516,
+      "acceptance_rate": 0.7397260273972602
+    },
+    {
+      "gamma": 2,
+      "wall_clock_s": 0.7780667999977595,
+      "tokens": 384,
+      "tokens_per_s": 493.53088963711826,
+      "speedup": 1.0553088757960172,
+      "acceptance_rate": 0.7229299363057324
+    },
+    {
+      "gamma": 4,
+      "wall_clock_s": 0.8656263999946532,
+      "tokens": 384,
+      "tokens_per_s": 443.60939084386973,
+      "speedup": 0.9485625669514145,
+      "acceptance_rate": 0.5862068965517241
+    },
+    {
+      "gamma": 7,
+      "wall_clock_s": 1.1775959000005969,
+      "tokens": 384,
+      "tokens_per_s": 326.08809184865993,
+      "speedup": 0.697268731998323,
+      "acceptance_rate": 0.3724966622162884
+    }
+  ]
+}
