@@ -1,4 +1,4 @@
-# MicroServe
+# MicroServe — CPU-only inference engine, no GPU needed
 
 [![CI](https://github.com/Chrissie-1/microserve/actions/workflows/ci.yml/badge.svg)](https://github.com/Chrissie-1/microserve/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
